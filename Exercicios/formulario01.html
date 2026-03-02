@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <form action="/action_page.html">
+        <fieldset>
+        <legend>Formulário Matricula de Curso</legend>
+
+        <form>
+            <label for="pnome">Primeiro nome:</label><br>
+            <input type="text" id="pnome" name="pnome"><br>
+            <label for="unome">Sobrenome:</label><br>
+            <input type="text" id="unome" name="unome">
+        </form>
+
+        <h3>Curso:</h3>
+        <form>
+            <input type="radio" id="html" name="fav_language" value="Tecnico em Informatica">
+            <label for="Tecnico em Informatica">Técnico em Informática</label><br>
+            <input type="radio" id="css" name="fav_language" value="Graduacao">
+            <label for="Graduacao">Graduação - Análise e Desenvolvimento de Sistemas</label><br>
+            <input type="radio" id="javascript" name="fav_language" value="Profissionalizante">
+            <label for="Profissionalizante">Profissionalizante - Programação Web</label>
+        </form>
+
+        <h3>Linguagens de programação de sua preferência:</h3>
+        <form>
+            <input type="checkbox" id="linguagem1" name="linguagem1" value="PHP">
+            <label for="linguagem1">PHP</label><br>
+            <input type="checkbox" id="linguagem2" name="linguagem2" value="Java">
+            <label for="linguagem2">Java</label><br>
+            <input type="checkbox" id="linguagem3" name="linguagem3" value="Python">
+            <label for="linguagem3">Python</label>
+        </form>
+
+        <h3>Escolha um turno:</h3>
+        <select name="turno" id="turno">
+            <option value="manha">Manhã</option>
+            <option value="tarde">Tarde</option>
+            <option value="noite">Noite</option>
+        </select>
+
+        <h3>Escolha uma unidade mais próxima a você:</h3>
+        <label for="browser"></label>
+        <input list="browsers" name="browser" id="browser">
+            <datalist id="browsers">
+            <option value="Chapecó">
+            <option value="Xanxerê">
+            <option value="Lages">
+            <option value="Criciúma">
+            <option value="Gaspar">
+            </datalist>
+
+        <button>Enviar</button>
+
+
+        </fieldset>
+    </form>
+    
+</body>
+</html>

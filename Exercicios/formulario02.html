@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <form action="/action_page.html"> <!---esse link é pra onde vai quando clica no enviar-->
+        <fieldset>
+        <legend>Sistema de Gestão Acadêmica</legend>
+
+        <h3>Manutenção de Usuários do Sistema Interno</h3>
+      
+            <label for="pnome">Login:</label><br>
+            <input type="text" id="pnome" name="pnome"><br>
+            <label for="unome">Senha:</label><br>
+            <input type="text" id="unome" name="unome">
+        
+
+        <h3>Status:</h3>
+        <select name="status" id="status">
+            <option value="ativo">Ativo</option>
+            <option value="inativo">Inativo</option>
+        </select>
+
+        <h3>Tipo:</h3>
+        
+            <input type="radio" id="Tecnico" name="tipo" value="Tecnico">
+            <label for="Tecnico">Técnico</label>
+            <input type="radio" id="Professor" name="tipo" value="Professor">
+            <label for="Professor">Professor</label>
+            <input type="radio" id="Aluno" name="tipo" value="Aluno">
+            <label for="Aluno">Aluno</label>
+       
+
+        <label for="data"><h3>Data Criação:</h3></label>
+        <input type="date" id="data" name="data">
+
+        <h3>Perfil:</h3>
+        
+            <input type="radio" id="convidado" name="tipo" value="Tconvidado">
+            <label for="convidado">Convidado</label>
+            <input type="radio" id="administrador" name="tipo" value="administrador">
+            <label for="administrador">Administrador</label><br>
+        
+        <h3>Observações:</h3>
+        <label for="observacoes"></label><br>
+        <textarea id="observacoes" name="observacoes" rows="4" cols="50">
+        </textarea>
+
+        <h3>Módulos:</h3>
+        
+            <input type="checkbox" id="modulo1" name="modulo1" value="Compras">
+            <label for="modulo1">Compras</label>
+            <input type="checkbox" id="modulo2" name="modulo2" value="Biblioteca">
+            <label for="modulo2">Biblioteca</label>
+            <input type="checkbox" id="modulo3" name="modulo3" value="Academico">
+            <label for="modulo3">Acadêmico</label><br>
+            <input type="checkbox" id="modulo4" name="modulo4" value="Documentacao">
+            <label for="modulo4">Documentação</label>
+            <input type="checkbox" id="modulo5" name="modulo5" value="RH">
+            <label for="modulo5">Recursos Humanos</label>
+            <br>
+            <br>
+
+        <button>Enviar</button>
+        <button>Excluir</button>
+
+
+        </fieldset>
+    </form>
+    
+</body>
+</html>
