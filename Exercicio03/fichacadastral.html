@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table  width="500" cellpadding="1px" cellspacing="1px" align="center">
+    <tr>
+        <th colspan="4">
+            <h2 align="center">Ficha Cadastral</h2>
+        </th>
+    </tr>
+
+    <tr>
+        <td ><label for="nome">Nome:</label></td>
+        <td colspan="3" align="right">
+            <input type="text" id="nome" name="nome" size="55" maxlength="55">
+        </td>
+    </tr>
+
+    <tr>
+        <td><label for="rg" align="center">RG:</label></td>
+        <td >
+            <input type="text" id="rg" name="rg" size="12" maxlength="13">
+        </td>
+        <td><label for="cpf">C.P.F.:</label></td>
+        <td align="right">
+            <input type="text" id="cpf" name="cpf" size="12" maxlength="13">
+        </td>
+    </tr>
+
+    <tr>
+        <td><label for="endereco">Endereço:</label></td>
+        <td colspan="3" align="right">
+            <input type="text" id="endereco" name="endereco" size="55" maxlength="55">
+        </td>
+    </tr>
+
+    <tr>
+        <td><label for="sexo">Sexo:</label></td>
+        <td>
+            <select name="sexo" id="sexo">
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+            </select>
+        </td>
+        <td><label for="nascimento">Data Nascimento:</label></td>
+        <td align="right">
+            <input type="text" id="nascimento" name="nascimento" size="12" maxlength="13">
+        </td>
+    </tr>
+
+    <tr>
+        <td>Situação Civil</td>
+        <td colspan="4" align="center">
+            <input type="radio" id="solteiro" name="civil" value="SOLTEIRO">
+            <label for="solteiro">Solteiro(a)</label>
+            <input type="radio" id="casado" name="civil" value="CASADO">
+            <label for="casado">Casado(a)</label>
+            <input type="radio" id="viuvo" name="civil" value="VIUVO">
+            <label for="viuvo">Viúvo(a)</label>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="4" align="center">
+            <button type="reset">Limpar Dados</button>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

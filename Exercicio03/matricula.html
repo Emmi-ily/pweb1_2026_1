@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/enviar" method="post" >
+        <br>
+        <h2>Formulário de Mátricula</h2>
+        <br>
+        <label for="nomealuno">Nome do Aluno:</label><br>
+        <input type="text" id="nomealuno" name="nomealuno" required><br>
+        <br>
+        <label for="nascimento">Data de nascimento do Aluno:</label><br>
+        <input type="date" id="nascimento" name="nascimento" required><br>
+        <br>
+        <label for="emailaluno">E-mail do Aluno:</label><br>
+        <input type="email" id="emailaluno" name="emailaluno" required><br>
+
+        <br>
+        <h3>Selecione o seu ano</h3>
+        <select name="anoemi" id="anoemi" required>
+        <option value="1">1°</option>
+        <option value="2">2°</option>
+        <option value="3">3°</option>
+        <option value="4">4°</option>
+        </select>
+
+        <br>
+        <h3>Selecione o seu turno</h3>
+        <input type="radio" id="html" name="turno" value="manha">
+        <label for="manha">Manhã</label><br>
+        <input type="radio" id="html" name="turno" value="tarde">
+        <label for="tarde">Tarde</label><br>
+        <input type="radio" id="html" name="turno" value="noite">
+        <label for="noite">Noite</label><br>
+       
+        <br> 
+        <h3>Selecione as atividades extra-curriculares</h3>
+        <input type="checkbox" id="extrac1" name="extrac1" value="teatro">
+        <label for="extrac1"> Teatro</label><br>
+        <input type="checkbox" id="extrac2" name="extrac3" value="musica">
+        <label for="extrac2"> Música</label><br>
+        <input type="checkbox" id="extrac3" name="extrac3" value="ballet">
+        <label for="extrac3"> Ballet</label><br>
+        <input type="checkbox" id="extrac4" name="extrac4" value="pintura">
+        <label for="extrac4"> Pintura</label><br>
+        <input type="checkbox" id="extrac5" name="extrac5" value="judo">
+        <label for="extrac5"> Judô</label><br>
+        <input type="checkbox" id="extrac6" name="extrac6" value="futebol">
+        <label for="extrac6"> Futebol</label><br>
+
+        <br>
+        <button type="submit" onclick="window.location.href='sucesso.html'">Enviar Formulário!</button>
+        
+    </form>
+
+</body>
+</html>
