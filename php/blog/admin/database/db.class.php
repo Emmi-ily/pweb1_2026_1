@@ -1,6 +1,7 @@
 <?php
 
-class db {
+class db
+{
 
     private $host     = 'localhost';
     private $user     = 'root';
@@ -33,29 +34,76 @@ class db {
         }
     }
 
-    //INSERT INTO tabela(`campo1`, `campo2`) VALUES (?, ?);
-    public function store($dados){  
+    //SELECT * FROM tabela
+    public function all(){
+        $sql = "SELECT * FROM $this->table_name";
+        $st = $this->conn->prepare($sql);
+        $st->execute();
 
+        return $st->fetchAll(PDO::FETCH_CLASS);
+    }
+
+    public function find($id){
+        $sql = "SELECT * FROM $this->table_name WHERE id = ?";
+        $st = $this->conn->prepare($sql);
+        $st->execute([$id]);
+
+        return $st->fetchObject();
+    }
+    //INSERT INTO `db_pweb1_2026_1`.`aluno` (`nome`, `email`) VALUES ('Yasmim', 'yasmim@aluno.vsr07aluno.ifsc.edu.br');
+
+    public function store($dados)
+    {
         $campos = "";
         $marcadores = "";
         $vetorData = [];
         $sep = "";
 
-        foreach($dados as $campo => $valor) {
+        foreach ($dados as $campo => $valor) {
             $campos .= $sep . $campo;
             $marcadores .= $sep . "?";
             $vetorData[] = $valor;
             $sep = ",";
         }
-
         $sql = "INSERT INTO $this->table_name ($campos) VALUES ($marcadores)";
 
-        try{ 
+
+        try {
             $st = $this->conn->prepare($sql);
             $st->execute($vetorData);
-        }catch(PDOException $e){
-            var_dump("Erro ao inserir". $e->getMessage());
+        } catch (PDOException $e) {
+             throw new Exception("Erro ao inserir", $e->getMessage());
         }
-        
     }
+
+    public function destroy($id){
+        
+    try {
+        $sql = "DELETE FROM $this->table_name WHERE id = ?;";
+        $st = $this->conn->prepare($sql);
+        $st->execute([$id]);
+    } catch (PDOException $e) {
+        throw new Exception(message: "Erro ao deletar: " . $e->getMessage());
+    }
+
+    }
+
+    public function search($dados){
+
+        $campo = $dados['tipo'];
+        $valor = $dados['valor'];
+        
+        $sql = "SELECT * FROM $this->table_name WHERE $campo LIKE ? ";
+
+    try{
+        $st = $this->conn->prepare($sql);
+        $st->execute(["%valor%"]);
+
+        return $st->fetchAll(PDO::FETCH_CLASS);
+    
+    }catch (PDOException $e) {
+        throw new Exception(message: "Erro ao deletar: " . $e->getMessage());
+    }
+}
+
 }

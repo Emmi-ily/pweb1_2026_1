@@ -1,17 +1,18 @@
 <?php
 
-
 include_once './database/db.class.php';
 
-//instanciar objeto da classe db
-$conn = new db("usuario");
+
+//instanciar um objt da classe DB
+
+$conn = new db("aluno");
 
 $dados = [
-    'nome'=>"Emily a",
-    'telefone' => "88 556633",
-    'email' => "emily.m1@aluno",
+    'nome' => "Yasmim",
+    'telefone' => "49998346409",
+    'email' => "yasmim.vsr07@aluno.ifsc.edu.br",
 ];
 
 $conn->store($dados);
-echo "Inserido com sucesso!";
+echo "dados inseridos com sucesso";
 
