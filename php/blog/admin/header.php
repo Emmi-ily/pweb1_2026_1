@@ -12,6 +12,11 @@
     </head>
   
     <?php
+
+    if(session_status() === PHP_SESSION_NONE){
+        session_start(); // se não existir uma seaaão na pagina, ele inicia uma
+    }
+    
         function redirect($page){
             echo "
             <script>

@@ -30,7 +30,7 @@ if(!empty($_GET['id'])){
             $db->store($_POST);
             $success = "Registro Salvo com Sucesso!"; 
          } else {
-            //$db->update($_POST);
+            $db->update(dados: $_POST);
             $success = "Registro Atualizado com Sucesso!";
          }
          
@@ -55,7 +55,7 @@ if(!empty($_GET['id'])){
       
       <form action="UsuarioForm.php" method="post">
          <h3>Formulário usuario</h3>
-         <input type="hidden" name="id" value="<?php echo getFormValue($data, 'nome'); ?>">
+         <input type="hidden" name="id" value="<?php echo getFormValue($data, 'id'); ?>">
          <div class="col-6">
             <label for="nome">Nome</label>
             <input type="text" name="nome" class="form-control" value="<?php echo getFormValue($data, 'nome'); ?>">

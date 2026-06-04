@@ -50,6 +50,14 @@ class db
 
         return $st->fetchObject();
     }
+    //SELECT * FROM tabela WHERE campo = valor
+    public function findBy($campo, $valor){
+        $sql = "SELECT * FROM $this->table_name WHERE $campo = ?";
+        $st = $this->conn->prepare($sql);
+        $st->execute([$valor]);
+
+        return $st->fetchObject();
+    }
     //INSERT INTO `db_pweb1_2026_1`.`aluno` (`nome`, `email`) VALUES ('Yasmim', 'yasmim@aluno.vsr07aluno.ifsc.edu.br');
 
     public function store($dados)
@@ -75,6 +83,32 @@ class db
              throw new Exception("Erro ao inserir", $e->getMessage());
         }
     }
+
+    //UPDATE tabela SET 'campo1' = ?;
+    public function update($dados)
+    {
+        $campos = "";
+        $vetorData = [];
+        $sep = ""; // passa aqui primeiro
+
+        foreach ($dados as $campo => $valor) {
+            if($campo !== 'id'){
+                $campos .= $sep . " $campo = ?";// assim ele vai mostrar na tela o campo e oq tem dentro bem certinho ex: nome = 'Emily', telefone = '2222'
+                $vetorData[] = $valor;
+                $sep = ", "; //quando passar aqui dentro dnv ele adiciona uma virgula
+            }
+        }
+        $vetorData[] = $dados['id'];
+        $sql = "UPDATE $this->table_name SET $campos  WHERE id = ?;";
+
+            try {
+            $st = $this->conn->prepare($sql);
+            $st->execute($vetorData);
+        } catch (PDOException $e) {
+             throw new Exception("Erro ao inserir", $e->getMessage());
+        }
+    }
+
 
     public function destroy($id){
         
