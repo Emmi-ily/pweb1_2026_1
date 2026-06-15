@@ -94,15 +94,15 @@ class db
     public function update($id, $dados)
 {
     $campos = "";
-    $vetorData = [];
+    $vetorData = [];//guarda
     $sep = "";
 
-    foreach ($dados as $campo => $valor) {
+    foreach ($dados as $campo => $valor) {//varre
         $campos .= $sep . "$campo = ?";
         $vetorData[] = $valor;
         $sep = ", ";
     }
-    $vetorData[] = $id; // id vai no final, para o WHERE
+    $vetorData[] = $id; 
 
     $sql = "UPDATE $this->table_name SET $campos WHERE id = ?";
 
@@ -111,6 +111,35 @@ class db
         $st->execute($vetorData);
     } catch (PDOException $e) {
         var_dump("Erro ao atualizar", $e->getMessage());
+    }
+}
+
+public function delete($id)
+{
+    $sql = "DELETE FROM $this->table_name WHERE id = ?";
+
+    try {
+        $st = $this->conn->prepare($sql);
+        // O execute retorna true em caso de sucesso e false em caso de falha
+        return $st->execute([$id]);
+    } catch (PDOException $e) {
+        var_dump("Erro ao excluir registro", $e->getMessage());
+        return false;
+    }
+}
+public function search($campo, $termo)
+{
+    // O operador LIKE precisa dos símbolos % para buscar termos parciais
+    $termoModificado = "%" . $termo . "%";
+    $sql = "SELECT * FROM $this->table_name WHERE $campo LIKE ?";
+
+    try {
+        $st = $this->conn->prepare($sql);
+        $st->execute([$termoModificado]);
+        return $st->fetchAll(PDO::FETCH_OBJ);
+    } catch (PDOException $e) {
+        var_dump("Erro ao realizar busca", $e->getMessage());
+        return [];
     }
 }
 }

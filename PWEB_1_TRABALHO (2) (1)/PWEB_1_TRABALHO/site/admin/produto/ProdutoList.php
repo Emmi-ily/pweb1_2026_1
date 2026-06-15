@@ -3,9 +3,6 @@ include __DIR__ . '/../../../header.php';
 include '../database/db.class.php';
 $db = new db('produto');
 
-// ==========================================
-// MÉTODO EXCLUIR (IGUAL AO AVALIACAOlist.PHP)
-// ==========================================
 if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['id'])) {
     $host = "localhost";
     $banco = "cafeteria";
@@ -34,6 +31,16 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['id'])
 $busca = $_GET['busca'] ?? '';
 $produtos = $db->all();
 ?>
+
+
+<body>
+<header>
+    <button class="btn btn-primary position-fixed" style="left: 20px; top: 50%; transform: translateY(-50%); z-index: 1030;" onclick="history.back()"><!--voltar tela anterior-->
+        &larr; Voltar
+    </button>
+</header>
+</body>
+
 
 <div class="container mt-4">
     <h2>Cardápio de Produtos</h2>
@@ -95,5 +102,3 @@ $produtos = $db->all();
     </div>
 </div>
 
-<?php 
-//include '../footer.php'; ?>
